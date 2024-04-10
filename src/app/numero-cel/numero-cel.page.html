@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Numero de celular</ion-title>
+  </ion-toolbar>
+  <ion-img src="../../assets/Imagenes/Grupo 20670.svg"></ion-img>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img src="../../assets/Imagenes/Oink.svg"></ion-img>
+  <h3>Para comenzar, por favor ingresa tu <strong>numero de celular</strong></h3>
+  <ion-item>
+    <ion-input type="number" placeholder="( X X X - X X X X X X )" [value]="numeroIngresado" disabled></ion-input>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let num of numeros">
+        <ion-button (click)="agregarNumero(num)" expand="full">{{ num }}</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="borrarUltimoNumero()" expand="full">
+          <ion-img src="../../assets/Imagenes/Backspace.svg"></ion-img>
+        </ion-button>
+      </ion-col>
+      <ion-col size="4" *ngFor="let num of numero">
+        <ion-button (click)="agregarNumero(num)" expand="full">{{ num }}</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="full" (click)="redirectToInfoPage()">
+          <ion-img src="../../assets/Imagenes/Check.svg"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

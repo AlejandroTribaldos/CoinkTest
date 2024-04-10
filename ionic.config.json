@@ -1,0 +1,7 @@
+{
+  "name": "CoinkFirst",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

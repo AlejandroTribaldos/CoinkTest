@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><</ion-title>
+    <ion-title>DATOS DE CUENTA</ion-title>
+  </ion-toolbar>
+  <ion-img src="../../assets/Imagenes/Grupo 20670-1.svg"></ion-img>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img src="../../assets/Imagenes/Oink-M.svg"></ion-img>
+  <h2>¿CUÁLES SON TUS DATOS?</h2>
+  <P>Ahora necesitamos saber algunos datos tuyos</P>
+
+  <ion-list>
+    <h3>Documento de identidad</h3>
+    <ion-label *ngIf="formularioDatos.tipdoc !== ''">Tipo de documento</ion-label>
+    <ion-item>
+      <ion-select placeholder="Tipo de documento">
+        <ion-select-option *ngFor="let opcion of tiposDoc" [value]="opcion" [(ngModel)]="formularioDatos.tipdoc">{{ opcion }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-label *ngIf="formularioDatos.numdoc">Número de documento</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Número de documento" [(ngModel)]="formularioDatos.numdoc"></ion-input>
+    </ion-item>
+    <ion-label *ngIf="formularioDatos.fechaven">Fecha de expedición del documento</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Fecha de expedición del documento" [(ngModel)]="formularioDatos.fechaven"></ion-input>
+    </ion-item>
+
+    <ion-label *ngIf="formularioDatos.fechanac">Fecha de nacimiento</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Fecha de nacimiento" [(ngModel)]="formularioDatos.fechanac"></ion-input>
+    </ion-item>
+
+    <ion-label *ngIf="formularioDatos.gene">Genero</ion-label>
+    <ion-item>
+      <ion-select placeholder="Genero">
+        <ion-select-option *ngFor="let opcion of genero" [value]="opcion" [(ngModel)]="formularioDatos.gene">{{ opcion }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <h3>Configura tu cuenta</h3>
+    <ion-label *ngIf="formularioDatos.correoele">Correo electrónico</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Correo electrónico" [(ngModel)]="formularioDatos.correoele"></ion-input>
+    </ion-item>
+    <ion-label *ngIf="formularioDatos.correoelec">Confirmar correo electrónico</ion-label>
+    <ion-item>
+      <ion-input type="text" placeholder="Confirmar correo electrónico" [(ngModel)]="formularioDatos.correoelec"></ion-input>
+    </ion-item>
+    <ion-label *ngIf="formularioDatos.pinseg">PIN de seguridad</ion-label>
+    <ion-item>
+      <ion-input type="password" placeholder="PIN de seguridad" [(ngModel)]="formularioDatos.pinseg"></ion-input>
+    </ion-item>
+    <ion-label *ngIf="formularioDatos.pinsegc">Confirmar PIN de seguridad</ion-label>
+    <ion-item>
+      <ion-input type="password" placeholder="Confirmar PIN de seguridad" [(ngModel)]="formularioDatos.pinsegc"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="onSubmit()">Enviar</ion-button>
+</ion-content>
